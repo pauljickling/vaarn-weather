@@ -11,7 +11,7 @@ class Node {
 }
 
 const node0 = new Node('Still', 0);
-const node1 = new Node('Worm-pollen', 1);
+const node1 = new Node('Worm-Pollen', 1);
 const node2 = new Node('Hazy', 2);
 const node3 = new Node('Still', 3);
 const node4 = new Node('Hazy', 4);
@@ -107,5 +107,10 @@ function getWeather(n) {
   return weather;
 }
 
-const weather = getWeather(36);
-console.log(weather);
+function addWeather() {
+  let targetElement = document.getElementById('weatherOutput');
+  let n = document.getElementById('days').value;
+  let weather = getWeather(n);
+  // TODO create new html list element instead of comma separated entry
+  targetElement.innerHTML = weather.join(', ');
+}
