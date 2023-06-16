@@ -108,6 +108,7 @@ function getWeather(n) {
 }
 
 function addWeather() {
+  event.preventDefault();
   let targetElement = document.getElementById('weatherOutput');
   let n = document.getElementById('days').value;
   let weather = getWeather(n);
