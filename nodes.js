@@ -112,6 +112,11 @@ function addWeather() {
   let targetElement = document.getElementById('weatherOutput');
   let n = document.getElementById('days').value;
   let weather = getWeather(n);
-  // TODO create new html list element instead of comma separated entry
-  targetElement.innerHTML = weather.join(', ');
+  // TODO stylize tags
+  let fragment = document.createDocumentFragment();
+  for (let i of weather) {
+    let section = fragment.appendChild(document.createElement('section'));
+    section.textContent = i;
+  }
+  document.body.appendChild(fragment);
 }
