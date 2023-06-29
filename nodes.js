@@ -112,11 +112,13 @@ function addWeather() {
   let targetElement = document.getElementById('weatherOutput');
   let n = document.getElementById('days').value;
   let weather = getWeather(n);
-  // TODO stylize tags
+  // TODO make first tag have a specific color and move along siblings onClick
+  // TODO provide more information when expanded
   let fragment = document.createDocumentFragment();
   for (let i of weather) {
     let section = fragment.appendChild(document.createElement('section'));
     section.textContent = i;
+    section.classList.add('weather');
   }
-  document.body.appendChild(fragment);
+  targetElement.appendChild(fragment);
 }

@@ -39,3 +39,22 @@ button {
   align-items: center;
   justify-content: space-around;
 }
+
+.weatherGrid {
+  /* TODO align grid items with the rest of the grid */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: left;
+  justify-content: space-around;
+  margin: 0;
+}
+
+#weatherOutput {
+  margin-top: .75em;
+}
+
+section.weather {
+  /* TODO stylize */
+  margin-bottom: .1rem;
+}
