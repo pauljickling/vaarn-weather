@@ -88,6 +88,23 @@ node36.addAdj([33, 19, 18, 35, 36, 27]);
 
 const graph = [node0, node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11, node12, node13, node14, node15, node16, node17, node18, node19, node20, node21, node22, node23, node24, node25, node26, node27, node28, node29, node30, node31, node32, node33, node34, node35, node36];
 
+const weatherDetails = {
+  still: 'The desert landscape is still, untroubled by the susurration of the heavens. Visibility is good.',
+  hazy: 'The air is still, but mists of a lurid hue hang over the desert. Visibility is impaired and landmarks cannot be seen from a distance. Vigilance checks are made with disadvantage.',
+  dust_storm: 'The wind blows sheets of blue dust across the desert. Visibility is badly impaired. Traveling under such conditions is possible, but the pace is slowed to half normal speed. A three day journey will take six days, and so on. Vigilance checks are made with disadvantage.',
+  sand_storm: 'A howling wind blows a ferocious cloud of azure sand across the desert. Nobody travels in Vaarn’s sandstorms; the PCs must hunker down and wait out the storm. Tents or other makeshift shelters will provide adequate protection. Any encounters rolled during these days are assumed to be seeking shelter from the storm in the same place as the party.',
+  heatwave: 'Urth’s dying sun musters all the warmth it can. PCs must consume twice their normal ration of water per day if they wish to travel during a heatwave.',
+  worm_pollen: 'The sandworms of the Interior reproduce through a baroque, decade-long process of parthenogenesis, culminating in the explosive release of thousands of melon-sized spores into the atmosphere. This worm-pollen drifts back to Urth in ponderous sticky deluges that can last for weeks. Progress through shifting mounds of the stuff is slowed to half normal speed; the upside is that worm-pollen is edible, and many a starving man has been saved by the timely arrival of spores from the heavens. Treat worm-pollen days as providing d4 rations per player.',
+  rain: 'A rare bounty. The parched blue earth is blessed with water. The party may collect 2d6 days of rations per member. In the aftermath of a rainshower, the desert is conquered by a short-lived imperium of majestic flora.',
+  prismatic_tempest: 'The sky bruises with clouds of midnight blue. Howling winds carry scouring sheets of sand across the landscape. Thunder rends the air and polychromatic lightning caresses the desert like the tendrils of a jellyfish deity. No travel of any kind is possible, and the PCs will take 3d6 electrical damage every hour they spend above-ground.'
+};
+
+function stringToKey(str) {
+  str = str.toLowerCase();
+  str = str.replace(/[\s-]/g, '_');
+  return str;
+}
+
 function traverseGraph(currentNode) {
   let die = Math.floor(Math.random() * 6);
   let nextNode = currentNode.adj[die];
@@ -113,11 +130,14 @@ function addWeather() {
   let n = document.getElementById('days').value;
   let weather = getWeather(n);
   // TODO make first tag have a specific color and move along siblings onClick
-  // TODO provide more information when expanded
   let fragment = document.createDocumentFragment();
   for (let i of weather) {
-    let section = fragment.appendChild(document.createElement('section'));
-    section.textContent = i;
+    let section = fragment.appendChild(document.createElement('details'));
+    let detailsKey = stringToKey(i);
+    console.log(detailsKey);
+    // TODO fix weatherDetails returning undefined
+    console.log(weatherDetails.detailsKey);
+    section.textContent = detailsKey;
     section.classList.add('weather');
   }
   targetElement.appendChild(fragment);
