@@ -134,10 +134,7 @@ function addWeather() {
   for (let i of weather) {
     let section = fragment.appendChild(document.createElement('details'));
     let detailsKey = stringToKey(i);
-    console.log(detailsKey);
-    // TODO fix weatherDetails returning undefined
-    console.log(weatherDetails.detailsKey);
-    section.textContent = detailsKey;
+    section.textContent = weatherDetails[detailsKey];
     section.classList.add('weather');
   }
   targetElement.appendChild(fragment);
