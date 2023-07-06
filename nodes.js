@@ -132,10 +132,12 @@ function addWeather() {
   // TODO make first tag have a specific color and move along siblings onClick
   let fragment = document.createDocumentFragment();
   for (let i of weather) {
-    let section = fragment.appendChild(document.createElement('details'));
+    let details = fragment.appendChild(document.createElement('details'));
     let detailsKey = stringToKey(i);
-    section.textContent = weatherDetails[detailsKey];
-    section.classList.add('weather');
+    details.textContent = weatherDetails[detailsKey];
+    details.classList.add('weather');
+    let summary = details.appendChild(document.createElement('summary'));
+    summary.textContent = i;
   }
   targetElement.appendChild(fragment);
 }
