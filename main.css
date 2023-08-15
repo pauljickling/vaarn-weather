@@ -13,9 +13,6 @@ body {
   font-family: 'Charter Regular Webfont', sans-serif;
   line-height: 1.5;
   max-width: 80ch;
-  /*
-  background: #0050f2;
-  color: white; */
   font-size: 16px;
 }
 
@@ -45,25 +42,6 @@ button {
   justify-content: space-around;
 }
 
-.weatherGrid {
-  /* TODO align grid items with the rest of the grid
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  align-items: left;
-  justify-content: space-around;
-  margin: 0;  
-}
-
-#weatherOutput {
-  margin-top: .75em;
-}
-
-section.weather {
-  /* TODO stylize */
-  margin-bottom: .1rem;
-}
-
 summary {
   text-align: left;
   min-width: 80ch;
@@ -72,7 +50,6 @@ summary {
 }
 
 details {
-  margin-left: 8rem;
-  max-width: 80ch;
+  max-width: 60ch;
   margin-bottom: .5rem;
 }
