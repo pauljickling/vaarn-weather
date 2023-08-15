@@ -27,8 +27,9 @@ img {
   max-width: 100%;
 }
 
-input.days {
+input#days {
   padding: .5em;
+  max-width: 135px;
 }
 
 button {
